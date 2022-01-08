@@ -13,6 +13,7 @@
     --whiteBackground: #f8f8f8;
 
     --grey: #686868;
+    --greySelected: #e5e5e5;
     --softGrey: #f9f9f9;
     
     --red: #c00;
@@ -52,7 +53,6 @@ header{
 
 .top-nav{
     width: 100%;
-    border-bottom: var(--shadow);
 }
 
 .top-nav__ul{
@@ -118,13 +118,13 @@ header{
 }
 
 
-.bottom-nav{
+.right-nav{
     width: 100%;
     height: 56px;
     border-bottom: var(--shadow);
 }
 
-.bottom-nav__ul{
+.right-nav__ul{
     width: 100%;
     height: 100%;
     display: flex;
@@ -132,13 +132,13 @@ header{
     justify-content: center;
 }
 
-.bottom-nav__ul__li{
+.right-nav__ul__li{
     display: flex;
     align-items: center;
     justify-content: right;
 }
 
-.bottom-nav__ul__icon{
+.right-nav__ul__icon{
     width: 16px;
     height: 16px;
 }
@@ -166,15 +166,15 @@ header{
 main{
     width: 100%;
     height: 100%;
-    margin-top: 30px;
 }
 
 .videos{
     display: grid;
     grid-auto-columns: auto;
-    width: 80%;
-    margin: 0 auto;
+    width: 100%;
+    padding: 30px 30px 0 30px;
     gap: 20px;
+    background-color: var(--softGrey);
 }
 
 .video{
@@ -234,7 +234,7 @@ main{
     margin-bottom: 5px;
 }
 
-.top-nav__ul__li__notificationIcon, .top-nav__ul__li__microphoneIcon, #notification-count, .search-video{
+.top-nav__ul__li__notificationIcon, .top-nav__ul__li__microphoneIcon, #notification-count, .search-video, .left-nav{
     display: none;
 }
 
@@ -282,8 +282,9 @@ main{
     
     .videos{
         grid-template-columns: repeat(2, 1fr);
-        width: 90%;
+        padding: 30px 30px 0 30px;
     }
+    
 }
 
 @media (min-width: 660px){
@@ -291,12 +292,12 @@ main{
     #open-search-video-content{
         display: none;
     }
+
     .search-video{
         display: flex;
         width: 100%;
         margin-right: 15px;
     }
-
 
     .top-nav__ul__li__center{
         width: 100%;
@@ -346,6 +347,82 @@ main{
    
 }
 
+/* Menu de la izquierda */
+@media (min-width: 808px){
+
+    .right-navigation{
+        border-top: var(--shadow);
+    }
+
+    .left-nav{
+        display: flex;
+    }
+
+    .navigation__group, .navigation__group__li{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .navigation__group{
+        justify-content: flex-start;
+    }
+
+    .navigation__group__li{
+        width: 72px;
+        height: auto;
+        margin-top: 5px;
+        padding: 16px 0 14px 0;
+        justify-content: center;
+        cursor: pointer;
+    }
+
+    .navigation__group__li:hover{
+        background-color: var(--softGrey);
+    }
+
+    .navigation__group__li__icon{
+        width: 24px;
+        height: 24px;
+        margin-bottom: 8px;
+    }
+
+    .navigation__group__li__description{
+        font-size: 1rem;
+    }
+
+    main{
+        display: grid;
+        grid-template-areas: 
+            "left-navigation right-navigation"
+            "left-navigation videos"
+        ;
+    }
+
+    .left-navigation{
+        display: grid;
+        grid-area: left-navigation;
+    }
+
+    .navigation-item-selected{
+        background-color: var(--greySelected);
+        font-weight: 700;
+    }
+
+    .videos{
+        grid-area: videos;
+    }
+}
+
+@media (min-width: 890px){
+    
+    .videos{
+        grid-template-columns: repeat(3, 1fr);
+        padding: 30px 35px 0 35px;
+    }
+    
+}
+
 @media (min-width: 900px){
     .top-nav__ul{
         justify-content: space-between;
@@ -358,24 +435,44 @@ main{
     .top-nav__ul__li__center{
         width: 728px;
     }
-
-    
-}
-
-@media (min-width: 890px){
-    
-    .videos{
-        grid-template-columns: repeat(3, 1fr);
-        width: 80%;
-    }
-    
 }
 
 @media (min-width: 1150px){
-    
     .videos{
         grid-template-columns: repeat(4, 1fr);
-        width: 80%;
+        padding: 30px 40px 0 40px;
+    }
+}
+
+
+@media (min-width: 1200px){
+
+    .left-navigation{
+        margin-right: 20px;
+    }
+    .navigation__group__li{
+        flex-direction: row;
+        justify-content: flex-start;
+        align-items: center;
+        width: 224px;
+        height: 40px;
+        padding: 0px 24px;
+        margin-top: 0;
+    }
+
+    .navigation__group:first-child{
+        margin-top: 12px;
+    }
+    .navigation__group__li__icon{
+        margin-bottom: 0;
+        margin-right: 24px;
+        width: 32px;
+        height: 32px;
+    }
+
+    .navigation__group__li__description{
+        width: 100%;
+        font-size: 1.4rem;
     }
     
 }
