@@ -370,3 +370,12 @@ main{
     }
     
 }
+
+@media (min-width: 1150px){
+    
+    .videos{
+        grid-template-columns: repeat(4, 1fr);
+        width: 80%;
+    }
+    
+}
