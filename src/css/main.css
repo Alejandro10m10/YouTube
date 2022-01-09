@@ -13,9 +13,11 @@
     --whiteBackground: #f8f8f8;
 
     --grey: #686868;
+    --strongGrey: #7b696b;
     --greySelected: #e5e5e5;
     --softGrey: #f9f9f9;
     
+    --scrollColor: #909090;
     --red: #c00;
 }
 
@@ -28,21 +30,17 @@
 html{
     font-size: 62.5%;
     font-family: var(--primaryFont);
+    overflow: hidden;
 }
 
 body{
     font-size: 1.6rem;
 }
 
+
 li{
     list-style: none;
 }
-
-/*
-img{
-    width: 100%;
-}
-*/
 
 header{
     width: 100%;
@@ -117,6 +115,9 @@ header{
     cursor: pointer;
 }
 
+.right-navigation{
+    border-top: var(--shadow);
+}
 
 .right-nav{
     width: 100%;
@@ -172,9 +173,11 @@ main{
     display: grid;
     grid-auto-columns: auto;
     width: 100%;
+    height: 100vh;
     padding: 30px 30px 0 30px;
     gap: 20px;
     background-color: var(--softGrey);
+    overflow: scroll;
 }
 
 .video{
@@ -234,9 +237,11 @@ main{
     margin-bottom: 5px;
 }
 
-.top-nav__ul__li__notificationIcon, .top-nav__ul__li__microphoneIcon, #notification-count, .search-video, .left-nav{
+.top-nav__ul__li__notificationIcon, .top-nav__ul__li__microphoneIcon, #notification-count, .search-video, 
+.left-nav__top, .left-nav__data-user, .left-nav__user-subscriptions, .left-nav__moreAboutYouTube, .left-nav__settings{
     display: none;
 }
+
 
 /* Responsive Web Design Media Queries */
 @media (min-width: 407px){
@@ -350,12 +355,17 @@ main{
 /* Menu de la izquierda */
 @media (min-width: 808px){
 
-    .right-navigation{
-        border-top: var(--shadow);
+    .left-nav__top, .left-nav__data-user{
+        display: flex;
     }
 
-    .left-nav{
-        display: flex;
+    .left-nav__data-user .navigation__group li:nth-child(n+2){
+        display: none;
+    }
+
+    .left-nav__data-user{
+        border-top: none;
+        margin-top: none;
     }
 
     .navigation__group, .navigation__group__li{
@@ -393,14 +403,17 @@ main{
 
     main{
         display: grid;
+        gap: 0 10px;
         grid-template-areas: 
             "left-navigation right-navigation"
             "left-navigation videos"
+            "footer videos"
         ;
     }
 
     .left-navigation{
         display: grid;
+        place-content: start;
         grid-area: left-navigation;
     }
 
@@ -440,7 +453,7 @@ main{
 @media (min-width: 1150px){
     .videos{
         grid-template-columns: repeat(4, 1fr);
-        padding: 30px 40px 0 40px;
+        padding: 30px 20px 0 20px;
     }
 }
 
@@ -448,21 +461,87 @@ main{
 @media (min-width: 1200px){
 
     .left-navigation{
-        margin-right: 20px;
+        margin-right: 5px;
+        overflow-y: scroll;
+        width: 100%;
+        height: 100vh;
     }
+
+    .left-nav__user-subscriptions, .left-nav__moreAboutYouTube, .left-nav__settings{
+        display: flex;
+        flex-direction: column;
+    }
+
+    .left-nav__data-user, .left-nav__user-subscriptions, .left-nav__moreAboutYouTube, .left-nav__settings{
+        border-top: var(--shadow);
+        margin-top: 13px;
+    }
+
+    .left-nav__data-user .navigation__group li:nth-child(n+2){
+        display: flex;
+    }
+
+    .navigation__group__category-name{
+        font-size: 1.4rem;
+        text-transform: uppercase;
+        color: var(--strongGrey);
+        font-weight: bold;
+        margin-top: 15px;
+        margin-bottom: 8px;
+        padding-left: 24px;
+    }
+    .navigation__group__li__channel-name{
+        font-size: 1.4rem;
+
+        /* Para poner puntos suspensivos si el texto sobrepasa el ancho */
+        white-space: nowrap;
+        text-overflow: ellipsis;
+        overflow: hidden;
+    }
+
+    .navigation__group__li__channel-img{
+        width: 24px;
+        height: 24px;
+        border-radius: 50%;
+    }
+
+    .navigation__group__user-subscriptions{
+        display: grid;
+        place-content: center;
+        grid-template-columns: 0.8fr 2fr 0.5fr;
+    }
+
+    .navigation__group__li__channel-upgrade{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .navigation__group__li__channel-upgrade svg{
+        width: 5px;
+        height: 5px;
+    }
+
+    .navigation__group__li__channel-upgrade .liveNow{
+        width: 16px;
+        height: 16px;
+        fill: var(--red);
+    }
+
     .navigation__group__li{
         flex-direction: row;
         justify-content: flex-start;
         align-items: center;
         width: 224px;
         height: 40px;
-        padding: 0px 24px;
+        padding-left: 24px;
         margin-top: 0;
     }
 
     .navigation__group:first-child{
         margin-top: 12px;
     }
+
     .navigation__group__li__icon{
         margin-bottom: 0;
         margin-right: 24px;
@@ -474,5 +553,5 @@ main{
         width: 100%;
         font-size: 1.4rem;
     }
-    
+
 }
