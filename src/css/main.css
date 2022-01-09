@@ -553,5 +553,34 @@ main{
         width: 100%;
         font-size: 1.4rem;
     }
+}
 
+/* Custom Scrollbar */
+
+/* width */
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+    /* box-shadow: inset 0 0 5px grey;  */
+    border-radius: 10px;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+    background: var(--scrollColor); 
+    border-radius: 10px;
+    height: 1px;
+}
+
+/* Handle on hover */
+
+.left-navigation::-webkit-scrollbar-thumb{
+    background: transparent; 
+}
+
+.left-navigation:hover::-webkit-scrollbar-thumb {
+    background: var(--scrollColor); 
 }
