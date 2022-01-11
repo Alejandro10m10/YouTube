@@ -313,7 +313,7 @@ footer{
     .search-video{
         display: flex;
         margin-right: 15px;
-        width: auto;
+        width: 55%;
     }
 
     #txtVideoName{
@@ -478,9 +478,10 @@ footer{
         height: 100vh;
     }
 
+    /*
     #txtVideoName{
         width: 572px;
-    }
+    }*/
 
     .left-nav__user-subscriptions, .left-nav__moreAboutYouTube, .left-nav__settings, .footer{
         display: flex;
