@@ -143,8 +143,13 @@ header{
     height: 20px;
 }
 
-.top-nav__ul__li__right__item, .top-nav__ul__li__center__item{
+.top-nav__ul__li__right__item{
     margin-right: 16px;
+}
+
+.top-nav__ul__li__microphoneIcon{
+    margin-left: 5px;
+    margin-right: 0px;
 }
 
 .top-nav__ul__li svg, .top-nav__ul__li img, .top-nav__ul__li div{
@@ -278,6 +283,63 @@ main{
     display: none;
 }
 
+.top-nav__ul__li__center{
+    height: 70%;
+    justify-content: center;
+    align-items: center;
+}
+
+.search-video{
+    display: none;
+    margin-right: 7px;
+    width: 55%;
+    height: 100%;
+}
+
+#txtVideoName{
+    width: 100%;
+    padding: 5px 10px;
+    font-size: 1.6rem;
+    outline: none;
+}
+
+#txtVideoName::placeholder{
+    color: var(--transparentGrey);
+}
+
+#btnSearchVideo{
+    width: 68px;
+    height: auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--whiteBackground );
+    cursor: pointer;
+}
+
+#txtVideoName, #btnSearchVideo{
+    border: 1.7px solid var(--softWhiteLine);
+}
+
+#btnSearchVideo{
+    border-left: none;
+}
+
+.top-nav__ul__li__microphoneIcon{
+    width: 40.5px;
+    height: 40.5px;
+    padding: 8px;
+    justify-content: center;
+}
+
+#close-search-video-content{
+    width: 30px;
+    height: 30px;
+    margin-left: 15px;
+    margin-right: 15px;
+    display: none;
+}
+
 footer{
     padding-bottom: 80px;
 }
@@ -285,6 +347,10 @@ footer{
 
 /* Responsive Web Design Media Queries */
 @media (min-width: 407px){
+    .top-nav__ul__li__center{
+        margin-left: 0;
+    }
+
     .top-nav__ul__li__notificationIcon{
         display: block;
     }
@@ -339,57 +405,15 @@ footer{
         display: none;
     }
 
-    .top-nav__ul__li__center{
-        height: 70%;
-        margin-left: 30px;
-        justify-content: center;
-        align-items: stretch;
-    }
-
     .search-video{
         display: flex;
-        margin-right: 15px;
-        width: 55%;
-    }
-
-    #txtVideoName{
-        width: 100%;
-        padding: 5px 10px;
-        font-size: 1.6rem;
-        outline: none;
-    }
-
-    #txtVideoName::placeholder{
-        color: var(--transparentGrey);
-    }
-
-    #btnSearchVideo{
-        width: 68px;
-        height: auto;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        background-color: var(--whiteBackground );
-        cursor: pointer;
-    }
-    
-    #txtVideoName, #btnSearchVideo{
-        border: 1.7px solid var(--softWhiteLine);
-    }
-
-    #btnSearchVideo{
-        border-left: none;
     }
 
     .top-nav__ul__li__microphoneIcon{
-        width: 40.5px;
-        height: 40.5px;
-        padding: 8px;
-        justify-content: center;
         background-color: var(--softGrey);
         border-radius: 50%;
     }
-   
+    
 }
 
 /* Menu de la izquierda */
@@ -669,4 +693,12 @@ footer::-webkit-scrollbar-thumb{
 
 footer:hover::-webkit-scrollbar-thumb {
     background: var(--scrollColor); 
+}
+
+.no-display{
+    display: none;
+}
+
+.flex{
+    display: flex;
 }
