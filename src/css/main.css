@@ -344,6 +344,23 @@ footer{
     padding-bottom: 80px;
 }
 
+/* SideBar */
+.sidebar{
+    position: absolute;
+    display: grid;
+    grid-template-columns: 240px auto;
+    width: 100vw;
+    height: 100vh;
+    z-index: 1;
+}
+
+.sidebar__background{
+    background-color: #4d4d4d79;
+}
+
+.sidebar__content{
+    background-color: var(--white);
+}
 
 /* Responsive Web Design Media Queries */
 @media (min-width: 407px){
@@ -699,6 +716,6 @@ footer:hover::-webkit-scrollbar-thumb {
     display: none;
 }
 
-.flex{
-    display: flex;
+.grid{
+    display: grid;
 }

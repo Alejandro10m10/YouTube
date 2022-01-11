@@ -1,3 +1,4 @@
+// Variables para la funcionalidad del menu de busqueda
 let btnOpenSearch = document.querySelector("#open-search-video-content"),
     btnCloseSearch = document.querySelector("#close-search-video-content")
 
