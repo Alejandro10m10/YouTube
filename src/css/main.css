@@ -433,6 +433,7 @@ footer{
     
 }
 
+
 /* Menu de la izquierda */
 @media (min-width: 808px){
 
@@ -513,11 +514,6 @@ footer{
     footer{
         display: grid;
         grid-area: footer;
-    }
-
-    .navigation-item-selected{
-        background-color: var(--greySelected);
-        font-weight: 700;
     }
 
     .right-navigation{
@@ -681,6 +677,82 @@ footer{
         font-size: 1.4rem;
     }
 }
+
+/* Side Menu */
+
+.sidebar__content__nav__top{
+    display: flex;
+}
+
+.sidebar__content__nav__top:first-child{
+    margin-top: 12px;
+}
+
+.sidebar__content__nav__data-user{
+    border-top: var(--shadow);
+    margin-top: 13px;
+}
+
+.sidebar__content__nav__group, .sidebar__content__nav__group__li{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.sidebar__content__nav__group__li{
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    width: 224px;
+    height: 40px;
+    padding-left: 24px;
+    margin-top: 0;    
+}
+
+.sidebar__content__nav__group__li__icon{
+    margin-bottom: 0;
+    margin-right: 24px;
+    width: 32px;
+    height: 32px;
+}
+
+.sidebar__content__nav__group__li__description{
+    width: 100%;
+    font-size: 1.4rem;
+}
+
+.sidebar__content__header{
+    display: flex;
+    width: 100%;
+    align-items: center;
+}
+
+.sidebar__content__header__iconItem{
+    width: 24px;
+    margin-left: 24px;
+    margin-right: 25px;
+    height: 24px;
+}
+
+.sidebar__content__header--youTubeIcon{
+    position: relative;
+    width: 90px;
+    height: 20px;
+}
+
+.sidebar__content__header--youTubeCountry{
+    position: absolute;
+    font-size: 10px;
+    color: var(--black);
+    margin-left: 5px;
+    top: 17px;
+}
+
+.navigation-item-selected{
+    background-color: var(--greySelected);
+    font-weight: 700;
+}
+
 
 /* Custom Scrollbar */
 
