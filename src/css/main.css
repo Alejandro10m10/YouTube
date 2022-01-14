@@ -15,7 +15,7 @@
     --grey: #686868;
     --strongGrey: #7b696b;
     --greySelected: #e5e5e5;
-    --softGrey: #f9f9f9;
+    --softGrey: #f1f1f1;
     
     --scrollColor: #909090;
     --red: #c00;
@@ -344,24 +344,6 @@ footer{
     padding-bottom: 80px;
 }
 
-/* SideBar */
-.sidebar{
-    position: absolute;
-    display: grid;
-    grid-template-columns: 240px auto;
-    width: 100vw;
-    height: 100vh;
-    z-index: 1;
-}
-
-.sidebar__background{
-    background-color: #4d4d4d79;
-}
-
-.sidebar__content{
-    background-color: var(--white);
-}
-
 /* Responsive Web Design Media Queries */
 @media (min-width: 407px){
     .top-nav__ul__li__center{
@@ -613,6 +595,7 @@ footer{
         margin-bottom: 8px;
         padding-left: 24px;
     }
+
     .navigation__group__li__channel-name{
         font-size: 1.4rem;
 
@@ -680,6 +663,34 @@ footer{
 
 /* Side Menu */
 
+/* SideBar */
+.sidebar{
+    position: absolute;
+    display: grid;
+    grid-template-columns: 240px auto;
+    width: 100vw;
+    height: 100vh;
+    z-index: 1;
+}
+
+.sidebar__background{
+    background-color: #4d4d4d79;
+}
+
+
+.sidebar__content{
+    background-color: var(--white);
+    border-right: 3.5px solid white;
+}
+
+.sidebar__content__nav{
+    margin-top: 55px;
+    width: auto;
+    height: 100vh;
+    overflow-y: scroll;
+    padding-bottom: 80px;
+}
+
 .sidebar__content__nav__top{
     display: flex;
 }
@@ -688,16 +699,23 @@ footer{
     margin-top: 12px;
 }
 
-.sidebar__content__nav__data-user{
+.sidebar__content__nav__data-user, .sidebar__content__nav__user-subscriptions, .sidebar__content__nav__moreAboutYouTube, .sidebar__content__nav__settings, .sidebar__content__footer{
     border-top: var(--shadow);
-    margin-top: 13px;
+    margin-top: 12px;
+    padding-top: 10px;
 }
+
+.sidebar__content__nav__user-subscriptions, .sidebar__content__nav__moreAboutYouTube{
+    padding-top: 0px;
+}
+
 
 .sidebar__content__nav__group, .sidebar__content__nav__group__li{
     display: flex;
     flex-direction: column;
-    align-items: center;
+    align-items: flex-start;
 }
+
 
 .sidebar__content__nav__group__li{
     flex-direction: row;
@@ -706,7 +724,11 @@ footer{
     width: 224px;
     height: 40px;
     padding-left: 24px;
-    margin-top: 0;    
+    cursor: pointer;
+}
+
+.sidebar__content__nav__group__li:hover{
+    background-color: var(--softGrey);
 }
 
 .sidebar__content__nav__group__li__icon{
@@ -722,14 +744,16 @@ footer{
 }
 
 .sidebar__content__header{
+    position: absolute;
     display: flex;
     width: 100%;
+    height: 56px;
     align-items: center;
 }
 
 .sidebar__content__header__iconItem{
     width: 24px;
-    margin-left: 24px;
+    margin-left: 21px;
     margin-right: 25px;
     height: 24px;
 }
@@ -751,6 +775,86 @@ footer{
 .navigation-item-selected{
     background-color: var(--greySelected);
     font-weight: 700;
+}
+
+.sidebar__content__nav__group__category-name{
+    font-size: 1.4rem;
+    text-transform: uppercase;
+    color: var(--strongGrey);
+    font-weight: bold;
+    margin-top: 15px;
+    margin-bottom: 8px;
+    padding-left: 24px;
+}
+
+.sidebar__content__nav__group__user-subscriptions{
+    display: grid;
+    place-content: center;
+    grid-template-columns: 0.8fr 2fr 0.5fr;
+}
+
+.sidebar__content__nav__group__li__channel-img{
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+}
+
+.sidebar__content__nav__group__li__channel-name{
+    font-size: 1.4rem;
+    white-space: nowrap;  /* Para poner puntos suspensivos si el texto sobrepasa el ancho */
+    text-overflow: ellipsis;
+    overflow: hidden;
+}
+
+.sidebar__content__nav__group__li__channel-upgrade{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.sidebar__content__nav__group__li__channel-upgrade svg{
+    width: 5px;
+    height: 5px;
+}
+
+.sidebar__content__nav__group__li__channel-upgrade .liveNow{
+    width: 16px;
+    height: 16px;
+    fill: var(--red);
+}
+
+.sidebar__content__footer{
+    width: 100%;
+}
+
+.sidebar__content__footer__navigation{
+    width: 80%;
+    margin: 0 auto;
+}
+
+.sidebar__content__footer__navigation__primaryGroup, .sidebar__content__footer__navigation__secondaryGroup{
+    width: 192px;
+    display: flex;
+    flex-flow: row wrap;
+    margin-top: 10px;
+}
+
+.sidebar__content__footer__navigation__group__item{
+    margin-right: 8px;
+}
+
+.sidebar__content__footer__navigation__group__item a{
+    font-size: 1.3rem;
+    color: #606060;
+    font-weight: 600;
+    text-decoration: none;
+}
+
+.sidebar__content__footer--copyright{
+    margin-left: 21px;
+    margin-top: 20px;
+    font-size: 1.2rem;
+    color: var(--grey);
 }
 
 
