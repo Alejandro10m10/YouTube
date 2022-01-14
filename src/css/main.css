@@ -688,7 +688,7 @@ footer{
     width: auto;
     height: 100vh;
     overflow-y: scroll;
-    padding-bottom: 80px;
+    padding-bottom: 110px;
 }
 
 .sidebar__content__nav__top{
@@ -756,6 +756,7 @@ footer{
     margin-left: 21px;
     margin-right: 25px;
     height: 24px;
+    cursor: pointer;
 }
 
 .sidebar__content__header--youTubeIcon{
