@@ -169,15 +169,33 @@ header{
 .right-nav__ul{
     width: 100%;
     height: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    display: grid;
+    grid-template-columns: 0.5fr 3fr 0.5fr;
 }
+
+.bottom-nav__ul__icon{
+    width: 16px;
+    height: 16px;
+    cursor: pointer;
+}
+
+.bottom-nav__ul__icon--left{
+    justify-self: start;
+    align-self: center;
+    margin-left: 20px;
+}
+
+.bottom-nav__ul__icon--right{
+    justify-self: end;
+    align-self: center;
+    margin-right: 35px;
+}
+
 
 .right-nav__ul__li{
     display: flex;
     align-items: center;
-    justify-content: right;
+    justify-content: center;
 }
 
 .right-nav__ul__icon{
