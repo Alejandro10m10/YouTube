@@ -170,7 +170,9 @@ header{
     width: 100%;
     height: 100%;
     display: grid;
-    grid-template-columns: 0.5fr 3fr 0.5fr;
+    grid-template-columns: auto minmax(auto, 1130px) auto;
+
+    background: linear-gradient(to right,  rgba(255,255,255,1) 0%,rgba(255,255,255,0) 100%);
 }
 
 .bottom-nav__ul__icon{
@@ -182,7 +184,7 @@ header{
 .bottom-nav__ul__icon--left{
     justify-self: start;
     align-self: center;
-    margin-left: 20px;
+    margin-left: 18px;
 }
 
 .bottom-nav__ul__icon--right{
@@ -193,6 +195,7 @@ header{
 
 
 .right-nav__ul__li{
+    overflow: hidden;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -913,4 +916,8 @@ footer:hover::-webkit-scrollbar-thumb {
 
 .grid{
     display: grid;
+}
+
+.no-visible{
+    visibility: hidden;
 }
