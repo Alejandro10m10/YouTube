@@ -210,7 +210,7 @@ header{
 }
 
 .right-nav__ul__li::after {
-    right: 60px;
+    right: 12.5%;
     top: 57px;
     transform: rotateZ(180deg);
 }
@@ -436,6 +436,10 @@ footer{
         font-size: 1.2rem;
         border: 2px solid var(--white);
     }
+
+    .right-nav__ul__li::after {
+        right: 11%;
+    }
 }
 
 @media (min-width: 450px){
@@ -451,6 +455,10 @@ footer{
     .top-nav__ul__li__center{
         justify-content: center;
     }
+
+    .right-nav__ul__li::after {
+        right: 10%;
+    }
 }
 
 @media (min-width: 510px){
@@ -460,6 +468,15 @@ footer{
         padding: 30px 30px 111px 30px;
     }
     
+    .right-nav__ul__li::after {
+        right: 9%;
+    }
+}
+
+@media (min-width: 580px){
+    .right-nav__ul__li::after {
+        right: 7.7%;
+    }
 }
 
 @media (min-width: 660px){
@@ -476,9 +493,29 @@ footer{
         background-color: var(--softGrey);
         border-radius: 50%;
     }
+
+    .right-nav__ul__li::after {
+        right: 7.2%;
+    }
     
 }
 
+
+@media (min-width: 715px){
+
+    .right-nav__ul__li::after {
+        right: 6.5%;
+    }
+    
+}
+
+@media (min-width: 768px){
+
+    .right-nav__ul__li::after {
+        right: 6%;
+    }
+    
+}
 
 /* Menu de la izquierda */
 @media (min-width: 808px){
@@ -574,6 +611,11 @@ footer{
         padding-bottom: 10px;
         border-bottom: var(--shadow);
     }
+
+    .right-nav__ul__li::after {
+        right: 5.5%;
+    }
+    
 }
 
 @media (min-width: 890px){
@@ -583,6 +625,16 @@ footer{
         padding: 30px 30px 111px 30px;
     }
     
+    .right-nav__ul__li::after {
+        right: 5%;
+    }
+}
+
+@media (min-width: 1000px){
+    
+    .right-nav__ul__li::after {
+        right: 4.4%;
+    }
 }
 
 
@@ -590,6 +642,10 @@ footer{
     .videos{
         grid-template-columns: repeat(4, 1fr);
         padding: 30px 30px 111px 30px;
+    }
+
+    .right-nav__ul__li::after {
+        right: 4%;
     }
 }
 
@@ -723,6 +779,14 @@ footer{
         width: 100%;
         font-size: 1.4rem;
     }
+}
+
+@media (min-width: 1350px){
+
+    .right-nav__ul__li::after {
+        right: 3.5%;
+    }
+
 }
 
 /* Side Menu */
