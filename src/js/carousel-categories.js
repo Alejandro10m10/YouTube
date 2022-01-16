@@ -11,6 +11,7 @@ btnNext.addEventListener('click', nextCategory);
 
 function nextCategory(){
     hidePreviousButton(true);
+    showBorderBackground(true);
 }
 
 function hidePreviousButton(value){
@@ -28,5 +29,14 @@ function makeButtons(){
         categoryButton.classList.add('button', 'secondayButton');
     
         categoriesContent.appendChild(categoryButton);
+    }
+}
+
+function showBorderBackground(value){
+    if(value){
+        /*
+        var estilos = window.getComputedStyle(document.querySelector('.right-nav__ul__li::before'));
+        console.log(estilos);
+        */
     }
 }
