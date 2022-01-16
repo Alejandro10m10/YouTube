@@ -201,7 +201,17 @@ header{
     justify-content: flex-start;
 }
 
+/*
 .right-nav__ul__li::before, .right-nav__ul__li::after {
+    background: linear-gradient(to right, white 0%, rgba(255, 255, 255, 0.404) 100%);
+    content: "";
+    height: 55px;
+    position: absolute;
+    width: 80px;
+}
+*/
+
+.right-nav__ul__li::after, [data-class=before]::before {
     background: linear-gradient(to right, white 0%, rgba(255, 255, 255, 0.404) 100%);
     content: "";
     height: 55px;
@@ -219,8 +229,6 @@ header{
     width: 16px;
     height: 16px;
 }
-
-
 
 /*
 
