@@ -248,8 +248,8 @@ header{
 
 
 .animation {
-    -webkit-animation: scroll 1s linear infinite;
-            animation: scroll 1s linear infinite;
+    -webkit-animation: scroll 0.5s linear 1;
+            animation: scroll 0.5s linear 1;
 } 
 
 .button{

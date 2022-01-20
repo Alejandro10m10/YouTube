@@ -92,9 +92,22 @@ function translateElements(translate){
         }
     }
 
-    console.log(xTranslate);
-
     for(let i = 1; i < categoriesListLength ; i++){
         categoriesList[i].style.transform = `translateX(-${xTranslate}px)`;
+        doAnimation(categoriesList[i], removeList);
     }
+
+}
+
+
+function doAnimation(button, myCallBack){
+    button.classList.add('animation');
+    var intervalID = setInterval(myCallBack, 500, button);
+}
+
+function removeList(button){
+    button.classList.remove('animation');
+
+    document.documentElement.style.setProperty('--animationBefore', `-${xTranslate}`);
+    document.documentElement.style.setProperty('--animationAfter', `-${(xTranslate + pxTranslate)}px`);
 }
