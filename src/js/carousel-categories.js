@@ -3,35 +3,34 @@ const btnPrevious = document.querySelector('#btnPreviousCateogry'),
       categoriesContent = document.querySelector('.right-nav__ul__li');
 
 let arrayCategories = ["Todos", "Música", "Deportes", "Belleza", "Mascotas", "Ciencia", "Cine", "Fútbol", "Gamer", "Viajes", "Vlogs", 
-            "Unboxing", "Tecnología", "Steamer", "Noticias", "Pódcast", "En tiempo real","Subidos recientemente", "Novedad para ti"];
+            "Unboxing", "Tecnología", "Steamer", "Noticias", "Pódcast", "En tiempo real","Subidos recientemente", "Novedad para ti", "Finanzas", "Automóviles", "Comida"];
 
 makeButtons();
 
 let xTranslate = 0;
-const pxTranslate = 360;
+var categoriesList, 
+    categoriesListLength;
+const pxTranslate = 270;
 
 
 btnNext.addEventListener('click', nextCategory);
 btnPrevious.addEventListener('click', previusCategory);
 
-function contentFunction(){
-
-}
 function nextCategory(){
     hidePreviousButton(true);
-    showBorderBackground(true);
     translateElements("right");
 }
 
 function previusCategory(){
-    hidePreviousButton(true);
-    showBorderBackground(true);
++   hidePreviousButton(true);
     translateElements("left");
 }
 
 function hidePreviousButton(value){
     if(value){
         btnPrevious.classList.remove('no-visible');
+    } else{
+        btnPrevious.classList.add('no-visible');
     }
 }
 
@@ -47,24 +46,55 @@ function makeButtons(){
     
         categoriesContent.appendChild(categoryButton);
     }
+
+    showBorderBackground(false);
+    categoriesList = categoriesContent.childNodes;    
+    categoriesListLength = categoriesList.length;
 }
 
 function showBorderBackground(value){
     if(value){
         categoriesContent.setAttribute('data-class', 'before');
+    } else{
+        categoriesContent.removeAttribute('data-class');
     }
 }
 
+var countSlide = Math.ceil((categoriesListLength / 3)); // 6 Son las categotias que podemos ver por cada que hacemos un salto saltamos
+var contador = 0;
+
 function translateElements(translate){
 
-    (translate === "right") 
-        ? xTranslate += pxTranslate
-        : xTranslate -= pxTranslate;
+    if(translate === "right"){
+        if(contador === countSlide){
+            return;
+        }
+        xTranslate += pxTranslate;
+        contador++;
+        showBorderBackground(true);
+    } else{
 
-    let categoriesList = categoriesContent.childNodes;
-    for(let i = 1; i < categoriesList.length ; i++){
+        if(xTranslate >0){
+            xTranslate -= pxTranslate;
+        }
+
+        if(contador > 0){
+            contador--;
+            if(contador === 0){
+                hidePreviousButton(false);
+            }
+        } 
+        
+        if(xTranslate <= 0){
+            showBorderBackground(false);
+        } else{
+            showBorderBackground(true);
+        }
+    }
+
+    console.log(xTranslate);
+
+    for(let i = 1; i < categoriesListLength ; i++){
         categoriesList[i].style.transform = `translateX(-${xTranslate}px)`;
     }
-    
-
 }

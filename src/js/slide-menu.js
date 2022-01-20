@@ -6,15 +6,11 @@ const btnMenu = document.querySelector('#btnMenu'),
 
 
 btnMenu.addEventListener('click', showSidebar);
-sidebarContent.addEventListener('click', hola);
+//sidebarContent.addEventListener('click', hola);
 closeSidebarBackground.addEventListener('click', closeSideBar);
 btncloseSideBar.addEventListener('click', closeSideBar);
 
 window.addEventListener('resize', reportWindowSize);
-
-function hola(){
-    console.log('hice click en el contenido');
-}
 
 function decreaseSidebar(){
     pageWidth = document.documentElement.scrollWidth;

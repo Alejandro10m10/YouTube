@@ -19,6 +19,9 @@
     
     --scrollColor: #909090;
     --red: #c00;
+
+    --animationBefore: -0;
+    --animationAfter: -270px;
 }
 
 /* Fonts */
@@ -202,23 +205,15 @@ header{
     flex: 0 0 auto;
 }
 
-/*
-.right-nav__ul__li::before, .right-nav__ul__li::after {
-    background: linear-gradient(to right, white 0%, rgba(255, 255, 255, 0.404) 100%);
-    content: "";
-    height: 55px;
-    position: absolute;
-    width: 80px;
-}
-*/
 
 .right-nav__ul__li::after, [data-class=before]::before {
     background: linear-gradient(to right, white 0%, rgba(255, 255, 255, 0.404) 100%);
+    box-shadow: 5px 0px 0px rgba(255, 255, 255, 0.267);
     content: "";
     height: 55px;
     position: absolute;
     width: 80px;
-    z-index: 2;
+    z-index: 1;
 }
 
 .right-nav__ul__li::after {
@@ -232,32 +227,30 @@ header{
     height: 16px;
 }
 
-/*
 
 @-webkit-keyframes scroll {
     0% {
-      transform: translateX(0);
+        transform: translateX(var(--animationBefore));
     }
     100% {
-      transform: translateX(calc(-250px * 7));
+        transform: translateX(var(--animationAfter));
     }
-  }
+}
   
 @keyframes scroll {
     0% {
-        transform: translateX(0);
+        transform: translateX(var(--animationBefore));
     }
     100% {
-        transform: translateX(calc(-250px * 7));
+        transform: translateX(var(--animationAfter));
     }
 }
-*/
 
 
-/* .right-nav__ul__li {
-    -webkit-animation: scroll 40s linear infinite;
-            animation: scroll 40s linear infinite;
-  }  */
+.animation {
+    -webkit-animation: scroll 1s linear infinite;
+            animation: scroll 1s linear infinite;
+} 
 
 .button{
     padding: 7px 16px;
@@ -809,7 +802,7 @@ footer{
     grid-template-columns: 240px auto;
     width: 100vw;
     height: 100vh;
-    z-index: 1;
+    z-index: 2;
 }
 
 .sidebar__background{
