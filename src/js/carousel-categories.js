@@ -9,7 +9,8 @@ makeButtons();
 
 let xTranslate = 0;
 var categoriesList, 
-    categoriesListLength;
+    categoriesListLength,
+    intervalID;
 const pxTranslate = 270;
 
 
@@ -94,20 +95,23 @@ function translateElements(translate){
 
     for(let i = 1; i < categoriesListLength ; i++){
         categoriesList[i].style.transform = `translateX(-${xTranslate}px)`;
-        doAnimation(categoriesList[i], removeList);
+        doAnimation(categoriesList[i], translate, removeList);
     }
-
 }
 
-
-function doAnimation(button, myCallBack){
+function doAnimation(button, translateDirection, myCallBack){
     button.classList.add('animation');
-    var intervalID = setInterval(myCallBack, 500, button);
+    intervalID = setTimeout(myCallBack, 500, button, translateDirection);
 }
 
-function removeList(button){
+function removeList(button, translateDirection){
     button.classList.remove('animation');
 
-    document.documentElement.style.setProperty('--animationBefore', `-${xTranslate}`);
-    document.documentElement.style.setProperty('--animationAfter', `-${(xTranslate + pxTranslate)}px`);
+    if(translateDirection === "right"){
+        document.documentElement.style.setProperty('--animationBefore', `-${xTranslate}px`);
+        document.documentElement.style.setProperty('--animationAfter', `-${Math.abs(xTranslate + pxTranslate)}px`);
+    } else{
+        document.documentElement.style.setProperty('--animationBefore', `${Math.abs(xTranslate - pxTranslate)}px`);
+        document.documentElement.style.setProperty('--animationAfter', `${(xTranslate)}px`);
+    }
 }
