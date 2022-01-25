@@ -252,6 +252,22 @@ header{
             animation: scroll 0.5s linear 1;
 } 
 
+  
+@keyframes prueba {
+    0% {
+        transform: translateX(-270px);
+    }
+    100% {
+        transform: translateX(0px);
+    }
+}
+
+.prueba {
+    -webkit-animation: prueba 0.5s linear 1;
+            animation: prueba 0.5s linear 1;
+} 
+
+
 .button{
     padding: 7px 16px;
     border-radius: 20px;

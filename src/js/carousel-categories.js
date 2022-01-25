@@ -73,8 +73,8 @@ function translateElements(translate){
         xTranslate += pxTranslate;
         contador++;
         showBorderBackground(true);
-    } else{
 
+    } else{
         if(xTranslate >0){
             xTranslate -= pxTranslate;
         }
@@ -95,23 +95,29 @@ function translateElements(translate){
 
     for(let i = 1; i < categoriesListLength ; i++){
         categoriesList[i].style.transform = `translateX(-${xTranslate}px)`;
-        doAnimation(categoriesList[i], translate, removeList);
+        if(translate === "right"){
+            doAnimation(categoriesList[i], translate, removeList, 'animation');
+        } else{
+            doAnimation(categoriesList[i], translate, removeList, 'prueba');
+        }
     }
+
 }
 
-function doAnimation(button, translateDirection, myCallBack){
-    button.classList.add('animation');
-    intervalID = setTimeout(myCallBack, 500, button, translateDirection);
+
+function doAnimation(button, translateDirection, myCallBack, className){
+    button.classList.add(className);
+    intervalID = setTimeout(myCallBack, 500, button, translateDirection, className);
 }
 
-function removeList(button, translateDirection){
-    button.classList.remove('animation');
+function removeList(button, translateDirection, className){
+    button.classList.remove(className);
 
     if(translateDirection === "right"){
-        document.documentElement.style.setProperty('--animationBefore', `-${xTranslate}px`);
+        document.documentElement.style.setProperty('--animationBefore', `-${Math.abs(xTranslate)}px`);
         document.documentElement.style.setProperty('--animationAfter', `-${Math.abs(xTranslate + pxTranslate)}px`);
     } else{
-        document.documentElement.style.setProperty('--animationBefore', `${Math.abs(xTranslate - pxTranslate)}px`);
-        document.documentElement.style.setProperty('--animationAfter', `${(xTranslate)}px`);
+        document.documentElement.style.setProperty('--animationBefore', `-${Math.abs(xTranslate - pxTranslate)}px`);
+        document.documentElement.style.setProperty('--animationAfter', `-${Math.abs(xTranslate)}px`);  
     }
 }
